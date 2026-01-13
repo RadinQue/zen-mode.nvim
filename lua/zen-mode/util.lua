@@ -1,7 +1,9 @@
 local M = {}
 
 function M.get_hl(name)
-  local ok, hl = pcall(vim.api.nvim_get_hl_by_name, name, true)
+  local ok, hl = pcall(vim.api.nvim_get_hl, 0, {
+    name = name
+  })
   if not ok then
     return
   end
